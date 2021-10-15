@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = {"/signin"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> signin(@Valid @RequestBody User user, BindingResult bindingResult) {
+    public ResponseEntity<String> signin(@RequestBody User user, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

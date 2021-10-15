@@ -1,6 +1,9 @@
 package nursingManagement.persistence.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -10,8 +13,16 @@ public class User implements Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank(message = "Name is mandatory")
+    @Size(min = 3, message = "Name should have at least 3 letters")
     private String name;
+
+    @NotBlank(message = "Email is mandatory")
+    @Email
     private String email;
+
+    @NotBlank(message = "Password is mandatory")
+    @Size(min = 6, message = "Password should have at least 6 letters")
     private String password;
 
     @Override
