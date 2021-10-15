@@ -4,7 +4,7 @@ DELETE FROM users;
 DELETE FROM patients;
 DELETE FROM acts;
 
-INSERT INTO users(ID,USERNAME,PASSWORD,EMAIL) VALUES
+INSERT INTO users(ID,NAME,PASSWORD,EMAIL) VALUES
 (1,"Catarina Pereira","cp21","catarina.pereira@gmail.com"),
 (2,"Rui Magalhães","rm21","rui.magalhaes@gmail.com"),
 (3,"Teresa Videira","tv21","teresa.videira@gmail.com");

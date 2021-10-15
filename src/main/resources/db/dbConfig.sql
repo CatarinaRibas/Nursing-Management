@@ -4,7 +4,7 @@ USE nursing;
 
 CREATE TABLE users(
 ID integer auto_increment not null unique,
-USERNAME varchar(50) not null,
+NAME varchar(50) not null,
 PASSWORD varchar(50) not null,
 EMAIL varchar(50) not null,
 primary key (ID)

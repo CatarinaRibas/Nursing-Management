@@ -36,7 +36,7 @@
     <bean id="emFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="nursing-management.persistence.model"/>
+        <property name="packagesToScan" value="nursingManagement.persistence.model"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>

@@ -7,10 +7,14 @@
   <modelVersion>4.0.0</modelVersion>
   <packaging>war</packaging>
 
-  <name>Nursing Management</name>
-  <groupId>org.example</groupId>
-  <artifactId>nursing-management</artifactId>
+  <name>Nursing Management app</name>
+  <groupId>nursingManagement</groupId>
+  <artifactId>nursing-management-rest</artifactId>
   <version>0.0.1</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
   <dependencies>
     <!--dependency>
@@ -123,7 +127,7 @@
 
   <build>
 
-    <finalName>ROOT</finalName>
+    <finalName>Nursing Management</finalName>
 
     <plugins>
       <plugin>
@@ -143,7 +147,7 @@
         <configuration>
           <url>http://localhost:8080/manager/text</url>
           <server>tomcat</server>
-          <path>/nursing-management</path>
+          <path>/nursingManagement</path>
         </configuration>
       </plugin>
 
