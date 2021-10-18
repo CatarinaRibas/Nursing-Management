@@ -1,6 +1,7 @@
 package nursingManagement.controllers;
 
-import nursingManagement.errors.ErrorMessage;
+import nursingManagement.converters.UserToUserDto;
+import nursingManagement.dto.UserDto;
 import nursingManagement.exceptions.UserNotFoundException;
 import nursingManagement.persistence.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import nursingManagement.services.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -19,29 +21,38 @@ public class UserController {
 
     private UserService userService;
 
+    private UserToUserDto userToUserDto;
+
     @Autowired
     public void setUserService(UserService userService){
         this.userService = userService;
     }
 
+    @Autowired
+    public void setUserToUserDto(UserToUserDto userToUserDto){
+        this.userToUserDto = userToUserDto;
+    }
+
     @RequestMapping(method = RequestMethod.POST, path = {"/signin"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> signin(@RequestBody User user, BindingResult bindingResult) {
+    public ResponseEntity<UserDto> signin(@RequestBody User user,BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        Boolean singin = null;
         try {
-            singin = userService.login(user.getEmail(),user.getPassword());
-        } catch (UserNotFoundException e) {
-            e.printStackTrace();
-        }
+            Boolean singin = userService.login(user.getEmail(),user.getPassword());
 
-        if(!singin){
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            if(!singin){
+                return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+            }
+
+            User loginUser = userService.getUserByEmail(user.getEmail());
+
+            return new ResponseEntity<>(userToUserDto.convert(loginUser),HttpStatus.OK);
+
+        } catch (UserNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(userService.getUserByEmail(user.getEmail()).toString(),HttpStatus.OK);
 
     }
 

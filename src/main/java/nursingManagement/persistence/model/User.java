@@ -65,7 +65,7 @@ public class User implements Model {
         return "User{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                "} ";
+                "}";
 
     }
 
