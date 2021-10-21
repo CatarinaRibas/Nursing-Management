@@ -1,10 +1,13 @@
 package nursingManagement.services;
 
+import nursingManagement.exceptions.PatientNotFoundException;
+import nursingManagement.exceptions.UserNotFoundException;
 import nursingManagement.persistence.dao.PatientDao;
 import nursingManagement.persistence.model.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,11 +26,13 @@ public class PatientServiceImpl implements PatientService {
         return patientDao.findById(id);
     }
 
+    @Transactional
     @Override
     public Patient addPatient(Patient patient) {
         return patientDao.saveOrUpdate(patient);
     }
 
+    @Transactional
     @Override
     public void deletePatient(Integer id) {
         patientDao.delete(id);
@@ -45,11 +50,12 @@ public class PatientServiceImpl implements PatientService {
 
         List<Patient> patientsFiltered = new LinkedList<>();
 
-        for(Patient patient : allPatients ){
-            if(patient.getVillage().equals(option)){
+        for (Patient patient : allPatients) {
+            if (patient.getVillage().equals(option)) {
                 patientsFiltered.add(patient);
             }
         }
+
         return patientsFiltered;
     }
 

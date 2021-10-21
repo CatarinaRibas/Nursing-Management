@@ -9,4 +9,5 @@ public class PatientDao extends  GenericDao<Patient> {
     public PatientDao(){
         super(Patient.class);
     }
+
 }

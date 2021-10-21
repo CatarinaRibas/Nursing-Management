@@ -91,5 +91,4 @@ public class Patient implements Model {
                 "email= " + email + '\'' +
                 "}";
     }
-
 }

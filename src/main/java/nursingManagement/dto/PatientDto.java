@@ -5,11 +5,15 @@ import java.util.Date;
 
 public class PatientDto {
 
+    private Integer id;
+
     @NotBlank(message = "Name is mandatory")
     @Size(min = 3, max = 100)
     private String name;
 
     private Date birthdate;
+
+    private int age;
 
     private String address;
 
@@ -23,6 +27,14 @@ public class PatientDto {
 
     @Email
     private String email;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id){
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -38,6 +50,14 @@ public class PatientDto {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public int getAge(){
+        return this.age;
+    }
+
+    public void setAge(int age){
+        this.age = age;
     }
 
     public String getAddress() {

@@ -6,19 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d0d9ef80-0645-4547-82c3-8acd1d36d928" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/controllers/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/controllers/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/converters/PatientToPatientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/converters/PatientToPatientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/dto/PatientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/dto/PatientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/dao/PatientDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/dao/PatientDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/persistence/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nursingManagement/services/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nursingManagement/services/PatientServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/dbConfig.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/dbConfig.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Nursing Management.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Nursing Management.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/db/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/db/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/db/dbConfig.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/db/dbConfig.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/nursingManagement/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/nursingManagement/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/nursingManagement/persistence/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Nursing Management/WEB-INF/classes/nursingManagement/persistence/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/db/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/dbConfig.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/db/dbConfig.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nursingManagement/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nursingManagement/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nursingManagement/persistence/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nursingManagement/persistence/model/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -67,7 +64,7 @@
       <module name="Nursing-Management" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nursingManagement.app.*" />
+          <option name="PATTERN" value="nursingManagement.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
