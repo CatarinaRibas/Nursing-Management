@@ -1,11 +1,13 @@
 package nursingManagement.dto;
 
+import nursingManagement.persistence.model.Act;
+
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PatientDto {
-
-    private Integer id;
 
     @NotBlank(message = "Name is mandatory")
     @Size(min = 3, max = 100)
@@ -27,14 +29,6 @@ public class PatientDto {
 
     @Email
     private String email;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id){
-        this.id = id;
-    }
 
     public String getName() {
         return name;

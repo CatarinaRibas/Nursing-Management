@@ -5,7 +5,9 @@ import nursingManagement.persistence.model.Patient;
 import nursingManagement.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PatientDtoToPatient implements Converter<PatientDto, Patient> {
 
     private PatientService patientService;
@@ -18,7 +20,7 @@ public class PatientDtoToPatient implements Converter<PatientDto, Patient> {
     @Override
     public Patient convert(PatientDto patientDto) {
 
-        Patient patient = (patientDto.getId()!= null ? patientService.getPatientById(patientDto.getId()): new Patient());
+        Patient patient = new Patient();
 
         patient.setName(patientDto.getName());
         patient.setBirthdate(patientDto.getBirthdate());

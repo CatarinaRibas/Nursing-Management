@@ -1,7 +1,9 @@
 package nursingManagement.persistence.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "patients")
@@ -22,6 +24,14 @@ public class Patient implements Model {
     private Integer phone;
 
     private String email;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "patient",
+            fetch = FetchType.EAGER
+    )
+    private List<Act> acts = new ArrayList<>();
 
     @Override
     public Integer getId(){
@@ -79,6 +89,20 @@ public class Patient implements Model {
 
     public void setEmail(String email){
         this.email = email;
+    }
+
+    public List<Act> getActs(){
+        return this.acts;
+    }
+
+    public void addAct(Act act){
+        acts.add(act);
+        act.setPatient(this);
+    }
+
+    public void deleteAct(Act act){
+        acts.remove(act);
+        act.setPatient(null);
     }
 
     public String toString(){

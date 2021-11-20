@@ -18,7 +18,8 @@ ADDRESS varchar(100) not null,
 VILLAGE varchar(50) not null,
 PHONE integer(9) not null,
 EMAIL varchar(50) not null,
-primary key (ID)
+primary key (ID),
+CONSTRAINT UC_Patients UNIQUE (NAME,EMAIL)
 );
 
 CREATE TABLE acts(
