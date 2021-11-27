@@ -3,11 +3,8 @@ package nursingManagement.controllers;
 import nursingManagement.converters.ActToActDto;
 import nursingManagement.converters.PatientDtoToPatient;
 import nursingManagement.converters.PatientToPatientDto;
-import nursingManagement.dto.ActDto;
 import nursingManagement.dto.PatientDto;
-import nursingManagement.exceptions.ActNotFoundException;
 import nursingManagement.exceptions.PatientNotFoundException;
-import nursingManagement.persistence.model.Act;
 import nursingManagement.persistence.model.Patient;
 import nursingManagement.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,7 +113,7 @@ public class PatientController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
-        if(patient.getId() != null && !patient.getId().equals(id)){
+        if(patient.getId() != null && patient.getId() != id){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
@@ -150,57 +147,5 @@ public class PatientController {
         }
 
     }
-
-    @RequestMapping(method = RequestMethod.GET, path = "/{patientId}/act", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ActDto>> listPatientActs(@PathVariable Integer patientId){
-
-        Patient patient = patientService.getPatientById(patientId);
-
-        if(patient == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-        List<ActDto> actsDto = patient.getActs().stream().map(act -> actToActDto.convert(act)).collect(Collectors.toList());
-
-        return new ResponseEntity<>(actsDto, HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.POST, path = "/{patientId}/act", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addAct(@PathVariable Integer patientId, @Valid @RequestBody Act act, BindingResult bindingResult){
-
-        if(bindingResult.hasErrors()){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
-        try{
-
-            patientService.addAct(patientId,act);
-
-            return new ResponseEntity<>(HttpStatus.CREATED);
-
-        } catch (PatientNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE, path = "/{patientId}/act/{actId}/delete", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> deleteAct(@PathVariable Integer patientId, @PathVariable Integer actId){
-
-        try{
-
-            patientService.deleteAct(patientId,actId);
-
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
-        } catch (ActNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-        } catch (PatientNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
-    }
-
 
 }

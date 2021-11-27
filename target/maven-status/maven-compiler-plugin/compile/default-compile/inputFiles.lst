@@ -8,6 +8,7 @@
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/persistence/dao/GenericDao.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/controllers/PatientController.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/persistence/model/Act.java
+/Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/controllers/ActController.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/services/AgeCalculator.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/services/ActServiceImpl.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/services/ActService.java
@@ -20,7 +21,6 @@
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/persistence/model/AbtractModel.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/converters/ActToActDto.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/persistence/dao/ActDao.java
-/Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/controllers/NursingController.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/persistence/model/Model.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/converters/PatientToPatientDto.java
 /Users/CatarinaPereira/code/CatarinaRibas/MyCodingProjects/Nursing-Management/src/main/java/nursingManagement/converters/AbstractConverter.java

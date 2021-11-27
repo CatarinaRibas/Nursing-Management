@@ -33,7 +33,7 @@ public class Act implements Model {
     public void setId(Integer id) {
         this.id = id;
     }
-
+   
     public Date getNursing_date(){
         return this.nursing_date;
     }

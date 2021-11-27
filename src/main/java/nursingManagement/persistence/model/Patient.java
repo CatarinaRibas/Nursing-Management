@@ -26,7 +26,7 @@ public class Patient implements Model {
     private String email;
 
     @OneToMany(
-            cascade = CascadeType.ALL,
+            cascade = {CascadeType.ALL},
             orphanRemoval = true,
             mappedBy = "patient",
             fetch = FetchType.EAGER
@@ -97,6 +97,10 @@ public class Patient implements Model {
 
     public void addAct(Act act){
         acts.add(act);
+        act.setPatient(this);
+    }
+
+    public void editAct(Act act){
         act.setPatient(this);
     }
 

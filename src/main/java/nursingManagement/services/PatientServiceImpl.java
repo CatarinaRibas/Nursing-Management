@@ -1,6 +1,5 @@
 package nursingManagement.services;
 
-import com.mysql.cj.jdbc.exceptions.SQLError;
 import nursingManagement.exceptions.ActNotFoundException;
 import nursingManagement.exceptions.PatientNotFoundException;
 import nursingManagement.persistence.dao.ActDao;
@@ -11,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -24,12 +24,12 @@ public class PatientServiceImpl implements PatientService {
     private ActDao actDao;
 
     @Autowired
-    public void setPatientDao(PatientDao patientDao){
+    public void setPatientDao(PatientDao patientDao) {
         this.patientDao = patientDao;
     }
 
     @Autowired
-    public void setActDao(ActDao actDao){
+    public void setActDao(ActDao actDao) {
         this.actDao = actDao;
     }
 
@@ -76,7 +76,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Transactional
-    public Act addAct(Integer patientId, Act act) throws PatientNotFoundException{
+    public Act addAct(Integer patientId, Act act) throws PatientNotFoundException, ActNotFoundException {
 
         Patient patient = Optional.ofNullable(patientDao.findById(patientId)).orElseThrow(PatientNotFoundException::new);
 
@@ -88,22 +88,40 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Transactional
+    public Act editAct(Integer patientId, Act act) throws PatientNotFoundException, ActNotFoundException {
+
+        Patient patient = Optional.ofNullable(patientDao.findById(patientId)).orElseThrow(PatientNotFoundException::new);
+
+        if (!(getActIds(patient).contains(act.getId()))) {
+            throw new ActNotFoundException();
+        }
+
+        patient.editAct(act);
+        actDao.saveOrUpdate(act);
+
+        return patient.getActs().get(patient.getActs().size() - 1);
+
+    }
+
+    private Set<Integer> getActIds(Patient patient) {
+        List<Act> acts = patient.getActs();
+
+        return acts.stream().map(Act::getId).collect(Collectors.toSet());
+    }
+
+
+    @Transactional
     public void deleteAct(Integer patientId, Integer actId) throws PatientNotFoundException, ActNotFoundException {
 
         Patient patient = Optional.ofNullable(patientDao.findById(patientId)).orElseThrow(PatientNotFoundException::new);
 
         Act act = Optional.ofNullable(actDao.findById(actId)).orElseThrow(ActNotFoundException::new);
 
-        if(!act.getPatient().getId().equals(patientId)){
+        if (!act.getPatient().getId().equals(patientId)) {
             throw new ActNotFoundException();
         }
 
         patient.deleteAct(act);
         patientDao.saveOrUpdate(patient);
-
-
-
-
     }
-
 }
